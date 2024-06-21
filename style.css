@@ -1,0 +1,153 @@
+/* font-family: "Poppins", sans-serif; */
+:root{
+    --ff-serif : "Poppins", sans-serif;
+
+
+    --fw-light : 200;
+    --fw-normal : 400;
+    --fw-bold : 600;
+
+    --fs-400 : 0.9375rem;
+    --fs-500 : 1.25rem;
+    --fs-600 : 1.625rem;
+    --fs-900 : 2.5rem;
+
+
+    --clr-neutral-900 : hsl(234, 12%, 34%);
+    --clr-neutral-400 : hsl(229, 6%, 66%);
+    --clr-neutral-100 : hsl(0, 0%, 98%);
+
+    --clr-red : hsl(0,78%,62%);
+    --clr-teal : hsl(180, 62%, 55%);
+    --clr-yellow : hsl(34, 97%, 64%);
+    --clr-blue : hsl(212, 86%, 64%);
+}
+
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: var(--ff-serif);
+    font-weight : var(--fw-normal);
+    line-height: 1.7;
+    color : var(--clr-neutral-400);
+}
+
+body{
+    margin : 0;
+    padding-block-end : 5rem;
+}
+h1,h2,h3{
+    color : var(--clr-neutral-900);
+    line-height : 1.2;
+}
+
+.wrapper{
+    padding-inline : 2rem;
+    max-width: 1280px;
+    margin-inline:auto;
+}
+
+.wrapper-narrow{
+    max-width: 550px;
+}
+
+header{
+    text-align: center;
+    margin-block: 6rem;
+}
+
+h1{
+    font-size : var(--fs-900);
+    font-weight: var(--fw-light);
+}
+h1 > span {
+    font-weight: var(--fw-bold);
+}
+header  > p{
+    font-size: var(--fs-500);
+}
+
+.layout-grid{
+    --gap : 2rem;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    'one'
+    'two'
+    'three'
+    'four'
+    ;
+    gap : var(--gap);
+}
+
+@media (min-width:800px){
+    .layout-grid{
+       grid-template-areas: 
+       '... two ...'
+       'one two four'
+       'one three four'
+       '... three ...'
+       ;
+    }
+
+    
+}
+.layout-grid > * {
+    flex : 1;
+}
+
+
+
+.card{
+
+    --br : .325rem;
+    padding : 2rem;
+    background-color: var(--clr-neutral-100);
+    border-top : var(--br) solid;
+    border-radius: var(--br);
+    box-shadow: 0 1rem 1.5rem -0.5rem rgb(0 50 100 / 0.15);
+}
+
+.layout-grid > :nth-child(1){
+    grid-area : one;
+}
+
+.layout-grid > :nth-child(2){
+    grid-area : two;
+}
+
+.layout-grid > :nth-child(3){
+    grid-area : three;
+}
+
+.layout-grid > :nth-child(4){
+    grid-area : four;
+}
+
+
+.card__title{
+    font-size: var(--fs-600);
+    margin : 0;
+}
+
+.card__img{
+    display: block;
+    margin-left : auto;
+    margin-top : 2rem;
+}
+
+.border-teal{
+    border-color : var(--clr-teal);
+}
+.border-red{
+    border-color : var(--clr-red);
+}
+.border-yellow{
+    border-color : var(--clr-yellow);
+}
+.border-blue{
+    border-color : var(--clr-blue);
+}
